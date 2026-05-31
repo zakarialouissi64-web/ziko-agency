@@ -190,12 +190,12 @@ nav a:hover {
         gap: 15px;
     }
 }
-/* ديزاين قسم المميزات العصري */
+/* ديزاين قسم المميزات بالإنجليزي */
 .features-section {
     padding: 90px 8%;
     text-align: center;
-    background-color: #080c14; /* خلفية داكنة متناسقة */
-    direction: rtl; /* باش يجي الترتيب والكتابة بالعر بية مقادة من اليمين */
+    background-color: #080c14;
+    direction: ltr; /* ردينا الاتجاه من اليسار لليمن */
 }
 
 .features-section h2 {
@@ -224,8 +224,8 @@ nav a:hover {
     background: #111827;
     border: 1px solid rgba(255, 255, 255, 0.03);
     padding: 40px 30px;
-    border-radius: 24px; /* حواف مستديرة بحال الآيفون */
-    text-align: right; /* كتابة من اليمين */
+    border-radius: 24px;
+    text-align: left; /* الكتابة مقادة على اليسار */
     transition: all 0.3s ease;
 }
 
@@ -236,7 +236,7 @@ nav a:hover {
 }
 
 .feature-icon-box {
-    background: rgba(56, 189, 248, 0.1); /* خلفية خفيفة للأيقونة */
+    background: rgba(56, 189, 248, 0.1);
     width: 75px;
     height: 75px;
     border-radius: 18px;
@@ -266,7 +266,7 @@ nav a:hover {
         font-size: 30px;
     }
     .features-grid {
-        grid-template-columns: 1fr; /* كارد واحدة ف السطر ف التيليفون */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 }
