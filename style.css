@@ -270,3 +270,112 @@ nav a:hover {
         gap: 20px;
     }
 }
+
+/* ديزاين قسم معرض الأعمال (Portfolio) */
+.portfolio-section {
+    padding: 90px 8%;
+    text-align: center;
+    background-color: #0b111e; /* خلفية متناسقة مع ألوان السيت الداكنة */
+    direction: ltr; /* اتجاه اليسار لليمن حيت الكود بالإنجليزي */
+}
+
+.portfolio-section h2 {
+    font-size: 38px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.portfolio-subtitle {
+    color: #9ca3af;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-card {
+    background: #111827;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    text-align: left; /* الكتابة من اليسار */
+    transition: all 0.4s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(56, 189, 248, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-img-box {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.portfolio-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover .portfolio-img-box img {
+    transform: scale(1.1); /* تأثير زووم خفيف فاش كتدوز الفأرة */
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.portfolio-tag {
+    background: rgba(56, 189, 248, 0.9);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 50px;
+}
+
+.portfolio-info {
+    padding: 25px;
+}
+
+.portfolio-info h3 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.portfolio-info p {
+    color: #9ca3af;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* متناسق مع الهواتف الذكية */
+@media (max-width: 768px) {
+    .portfolio-section h2 {
+        font-size: 30px;
+    }
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
