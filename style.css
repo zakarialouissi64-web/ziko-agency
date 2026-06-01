@@ -601,3 +601,48 @@ nav a:hover {
         padding: 50px 5% !important;
     }
 }
+/* ==========================================================================
+   ⬆️ Scroll To Top Button Style
+   ========================================================================== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(56, 189, 248, 0.9); /* نفس اللون الشيبي المتناسق مع السيت */
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    opacity: 0; /* كيكون مخفي ف الأول */
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.scroll-to-top:hover {
+    background-color: #38bdf8;
+    transform: translateY(-5px); /* تأثير حركة خفيفة فاش كتدوز السهم */
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+}
+
+/* فاش الـ JavaScript كيزيد هاد الكلاس كيبان السهم */
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* متناسق مع التيليفونات */
+@media (max-width: 768px) {
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
+    }
+}
