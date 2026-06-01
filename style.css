@@ -379,3 +379,69 @@ nav a:hover {
         gap: 25px;
     }
 }
+/* ===== MOBILE RESPONSIVE ===== */
+@media screen and (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  nav {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .logo {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero {
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+    line-height: 1.1;
+  }
+
+  .hero p {
+    font-size: 20px;
+    padding: 0 10px;
+  }
+
+  section {
+    padding: 50px 20px;
+  }
+
+  h2 {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .btn {
+    width: 100%;
+    display: block;
+    font-size: 20px;
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+  }
+}
