@@ -646,3 +646,53 @@ nav a:hover {
         height: 42px;
     }
 }
+/* ==========================================================================
+   📈 Animated Stats Counter Style
+   ========================================================================== */
+.stats-section {
+    padding: 60px 8%;
+    background-color: #0b111e;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    direction: ltr;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.stat-box {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: #38bdf8; /* اللون الشيبي الفخم د الوكالة */
+    margin: 0 0 10px 0;
+    font-family: sans-serif;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #9ca3af;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* 📱 متناسق تماماً مع التيليفونات */
+@media (max-width: 768px) {
+    .stats-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .stat-number {
+        font-size: 40px;
+    }
+}
