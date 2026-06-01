@@ -225,5 +225,33 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+</button>
+  <script>
+    // Get the button element
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    // Show button when user scrolls down 300px from the top
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollToTopBtn.classList.add("show");
+        } else {
+            scrollToTopBtn.classList.add("show") ? null : scrollToTopBtn.classList.remove("show");
+        }
+    };
+
+    // Smooth scroll to top when clicked
+    scrollToTopBtn.addEventListener("click", function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+</script>
 </body>
 </html>
