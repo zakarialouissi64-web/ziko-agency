@@ -191,7 +191,26 @@
       Our goal is to turn your ideas into a powerful digital identity.
     </p>
   </section>
-
+<!-- Stats Counter Section -->
+<section class="stats-section">
+    <div class="stats-container">
+        <!-- Stat 1 -->
+        <div class="stat-box">
+            <h3 class="stat-number" data-target="15">0</h3>
+            <p class="stat-label">Projects Delivered</p>
+        </div>
+        <!-- Stat 2 -->
+        <div class="stat-box">
+            <h3 class="stat-number" data-target="10">0</h3>
+            <p class="stat-label">Happy Clients</p>
+        </div>
+        <!-- Stat 3 -->
+        <div class="stat-box">
+            <h3 class="stat-number" data-target="100">0</h3>
+            <p class="stat-label">Success Rate (%)</p>
+        </div>
+    </div>
+</section>
   <section class="contact" id="contact">
   <h2>Let's Work Together</h2>
 
@@ -252,6 +271,49 @@
             behavior: "smooth"
         });
     });
+</script>
+  <script>
+    // Animated Stats Counter Script
+    const stats = document.querySelectorAll('.stat-number');
+    const speed = 200; // وكل ما صغرتي هاد الرقم كيزيد يسرع الحساب
+
+    const startCounters = () => {
+        stats.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 15);
+                } else {
+                    // إضافة علامة + أو % ف الأخير بشكل نقي
+                    if(target === 100) {
+                        counter.innerText = target + '%';
+                    } else {
+                        counter.innerText = '+' + target;
+                    }
+                }
+            };
+            updateCount();
+        });
+    };
+
+    // تشغيل العداد فاش يوصل الكليان للقسم (Intersection Observer)
+    const statsSection = document.querySelector('.stats-section');
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounters();
+                observer.unobserve(entry.target); // كيتشغل مرة وحدة بركة
+            }
+        });
+    }, { threshold: 0.5 });
+
+    if(statsSection) {
+        observer.observe(statsSection);
+    }
 </script>
 </body>
 </html>
