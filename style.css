@@ -529,3 +529,75 @@ nav a:hover {
     padding:18px;
   }
 }
+
+/* ==========================================================================
+   📱 Global Responsive Design Fixes for Mobile Devices
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    
+    /* 1. Header & Navigation Menu Mobile Optimization */
+    header {
+        padding: 15px 5% !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        text-align: center !important;
+    }
+
+    nav {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 15px !important;
+    }
+
+    nav a {
+        font-size: 14px !important;
+    }
+
+    /* 2. Hero Section & Main Typography Scaling */
+    .hero-section, .main-hero { 
+        padding: 60px 5% !important;
+        text-align: center !important;
+    }
+
+    .hero-section h1, .main-hero h1 {
+        font-size: 28px !important;
+        line-height: 1.3 !important;
+    }
+
+    .hero-section p, .main-hero p {
+        font-size: 15px !important;
+        padding: 0 10px !important;
+    }
+
+    /* 3. Hero Call-To-Action (CTA) Buttons Alignment */
+    .hero-buttons, .cta-container {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+
+    .hero-buttons a, .cta-container a {
+        width: 100% !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 4. Technologies & Skills Grid Optimization */
+    .tech-container, .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+        gap: 15px !important;
+        padding: 0 5% !important;
+    }
+
+    /* 5. Prevent Horizontal Scrolling Layout Breakers */
+    html, body {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    section {
+        padding: 50px 5% !important;
+    }
+}
