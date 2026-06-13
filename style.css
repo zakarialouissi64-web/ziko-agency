@@ -938,3 +938,29 @@ header {
 .menu-toggle.active .bar:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg) !important;
 }
+/* ==================== ZIKO AGENCY RESPONSIVE FIXES ==================== */
+
+/* 📱 كود خاص بتعديل التجاوب مع التلفونات */
+@media screen and (max-width: 768px) {
+  
+  /* 1. تنسيق الهيدر الفوقاني باش يبقى اللوغو عاليسار والمنيو عاليمين */
+  header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 15px 5% !important; /* تقليل شوية التيساع فالتلفون */
+  }
+
+  /* 2. التأكد باللي أيقونة المنيو (Hamburger) كتبقى ديما عاليمين */
+  .menu-toggle {
+    margin-left: auto !important; /* هاد السطر هو اللي كيدفعها لليمين */
+    margin-right: 0 !important;
+    z-index: 1001 !important; /* تبقى ديما الفوق فاش تفتح المنيو */
+  }
+
+  /* 3. التأكد باللي اللوغو كيبقى عاليسار */
+  .logo {
+    margin-right: auto !important;
+    font-size: 1.3rem !important; /* تصغير اللوغو شوية فالتلفون */
+  }
+}
