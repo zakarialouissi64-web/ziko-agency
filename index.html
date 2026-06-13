@@ -314,5 +314,23 @@
         observer.observe(statsSection);
     }
 </script>
+  <script>
+  // كود تشغيل قائمة الهاتف
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navbar = document.querySelector('.navbar');
+
+  mobileMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    navbar.classList.toggle('active');
+  });
+
+  // سد المنيو أوتوماتيكياً فاش تكليكي على أي رابط وسط منها
+  document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      navbar.classList.remove('active');
+    });
+  });
+</script>
 </body>
 </html>
