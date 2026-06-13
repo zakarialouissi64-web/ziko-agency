@@ -751,13 +751,13 @@ nav a:hover {
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 .contact-buttons-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-  padding: 20px 0;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important; /* كيجيب الأزرار فـ الوسط أفقياً */
+  justify-content: center !important;
+  gap: 24px !important; /* هادي هي المسافة والفراغ اللي غيكون بين زر الواتساب والإنستغرام */
+  width: 100% !important; /* باش ياخد العرض الكامل ديال الصفحة ويسمح بالتموضع فالمقاد */
+  margin: 30px auto !important; /* كيدير فراغ من الفوق والتحت وكيضمن الوسط */
 }
 
 .btn-contact {
@@ -794,12 +794,4 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 .btn-contact i {
   font-size: 1.6rem;
 }
-.contact-buttons-container {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important; /* كيجيب الأزرار فـ الوسط أفقياً */
-  justify-content: center !important;
-  gap: 24px !important; /* هادي هي المسافة والفراغ اللي غيكون بين زر الواتساب والإنستغرام */
-  width: 100% !important; /* باش ياخد العرض الكامل ديال الصفحة ويسمح بالتموضع فالمقاد */
-  margin: 30px auto !important; /* كيدير فراغ من الفوق والتحت وكيضمن الوسط */
-}
+
