@@ -853,53 +853,16 @@ header {
 }
 
 .logo span {
-  color: #3b82f6 !important; /* اللون الأزرق المضيء لشعار وكالتك */
+  color: #3b82f6 !important;
 }
 
-/* 2. تنسيق الروابط فـ الشاشات الكبيرة (البيسي) */
-.navbar {
-  display: flex !important;
-  align-items: center !important;
-  gap: 15px !important;
-}
-
-.navbar a {
-  font-family: 'Poppins', sans-serif !important;
-  color: #94a3b8 !important; /* لون رمادي خفيف أنيق */
-  text-decoration: none !important;
-  font-size: 1rem !important;
-  font-weight: 500 !important;
-  padding: 8px 16px !important;
-  transition: all 0.3s ease !important;
-}
-
-/* تأثير فاش كيدوز الماوس فوق الكلمات فالبيسي */
-.navbar a:hover {
-  color: #ffffff !important;
-}
-
-/* 3. الديزاين الأنيق ديال زر Contact (بحال زر Hire Us) */
-.navbar a.nav-contact-btn {
-  background-color: #2563eb !important; /* أزرق ملكي */
-  color: #ffffff !important;
-  border-radius: 50px !important; /* داير ومقاد بحال الصورة */
-  padding: 10px 24px !important;
-  font-weight: 600 !important;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3) !important;
-}
-
-.navbar a.nav-contact-btn:hover {
-  background-color: #1d4ed8 !important;
-  transform: scale(1.05) !important;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5) !important;
-}
-
-/* 4. أيقونة الأشرطة الثلاثة (Hamburger) - كتكون مخفية فـ البيسي */
+/* 2. فرض ظهور زر الأشرطة (Hamburger) فـ البيسي والتلفون بجوج */
 .menu-toggle {
-  display: none !important;
+  display: flex !important;
   flex-direction: column !important;
   cursor: pointer !important;
   gap: 5px !important;
+  z-index: 1001 !important;
 }
 
 .menu-toggle .bar {
@@ -910,54 +873,68 @@ header {
   transition: all 0.3s ease !important;
 }
 
-/* ==================== 📱 كود التجاوب مع التلفون ==================== */
-@media screen and (max-width: 768px) {
-  .menu-toggle {
-    display: flex !important; /* الأشرطة كيبانو غير فالتلفون */
-  }
+/* 3. تحويل القائمة (Navbar) لتكون مخفية وعمودية فـ كاع الشاشات */
+.navbar {
+  display: none !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  background-color: rgba(11, 15, 25, 0.98) !important;
+  gap: 30px !important;
+  z-index: 1000 !important;
+  padding: 0 !important;
+}
 
-  /* كيرجع المنيو ينزل عموديا ويغطي الخلفية بحال الصورة تماما */
-  .navbar {
-    display: none !important; /* مخفي فالبداية حتى تكليكي */
-    flex-direction: column !important;
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
-    width: 100% !important;
-    background-color: #0f172a !important; /* نفس لون الهيدر */
-    padding: 30px 0 !important;
-    gap: 20px !important;
-    text-align: center !important;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
-  }
+/* فاش تكليكي على الأشرطة كيبان المنيو الكبير */
+.navbar.active {
+  display: flex !important;
+}
 
-  /* فاش الـ JavaScript كيعطيها كلاس active كتظهر القائمة */
-  .navbar.active {
-    display: flex !important;
-  }
+/* تنسيق الروابط وسط المنيو الكبير */
+.navbar a {
+  font-family: 'Poppins', sans-serif !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  transition: color 0.3s ease !important;
+}
 
-  .navbar a {
-    font-size: 1.2rem !important; /* تكبير الخط فالتلفون باش يجي واضح */
-    color: #ffffff !important;
-    display: block !important;
-    width: 100% !important;
-  }
+.navbar a:hover {
+  color: #3b82f6 !important;
+}
 
-  /* زر Contact وسط القائمة فالتلفون */
-  .navbar a.nav-contact-btn {
-    display: inline-block !important;
-    width: auto !important;
-    margin-top: 10px !important;
-  }
+/* زر Contact الملون فـ أسفل القائمة */
+.navbar a.nav-contact-btn {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  padding: 12px 35px !important;
+  border-radius: 50px !important;
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4) !important;
+  margin-top: 15px !important;
+}
 
-  /* حركة سحرية: الأشرطة الثلاثة كيتحولو لـ X فاش كتفتح المنيو */
-  .menu-toggle.active .bar:nth-child(2) {
-    opacity: 0 !important;
-  }
-  .menu-toggle.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg) !important;
-  }
-  .menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg) !important;
-  }
+.navbar a.nav-contact-btn:hover {
+  background-color: #1d4ed8 !important;
+  transform: scale(1.05) !important;
+}
+
+/* 4. حركة الـ X للأشرطة فاش تتفتح المنيو */
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0 !important;
+}
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg) !important;
+}
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg) !important;
 }
