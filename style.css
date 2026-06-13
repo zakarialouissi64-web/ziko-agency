@@ -795,3 +795,37 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   font-size: 1.6rem;
 }
 
+/* تنسيق الروابط الرئيسية فـ الـ Navbar */
+.nav-links a, nav a, .navbar a { 
+  font-family: 'Poppins', sans-serif !important; /* خط عصري وأنيق */
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  color: #ffffff !important; /* اللون الأبيض */
+  text-decoration: none !important;
+  padding: 8px 16px !important; /* مسافة داخلية مريحة للعين */
+  margin: 0 10px !important; /* فراغ وتيساع بين الروابط */
+  position: relative !important;
+  transition: color 0.3s ease !important;
+}
+
+/* تأثير فاش كيدوز الماوس فوق الكلمة (Hover Effect) */
+.nav-links a:hover, nav a:hover, .navbar a:hover {
+  color: #3b82f6 !important; /* كيتحول اللون للأزرق المضيء المماثل لشعار وكالتك */
+}
+
+/* خط سحري كيتحرك تحت الكلمة فاش كيدوز الماوس */
+.nav-links a::after, nav a::after, .navbar a::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 0 !important;
+  height: 2px !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  background-color: #3b82f6 !important;
+  transition: all 0.3s ease !important;
+  transform: translateX(-50%) !important;
+}
+
+.nav-links a:hover::after, nav a:hover::after, .navbar a:hover::after {
+  width: 70% !important; /* الخط كيتباعد بشكل أنيق تحت الكلمة */
+}
