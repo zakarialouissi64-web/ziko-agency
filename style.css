@@ -891,7 +891,8 @@ header {
   gap: 30px !important;
   z-index: 1000 !important;
   padding: 0 !important;
-}
+backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;}
 
 /* فاش تكليكي على الأشرطة كيبان المنيو الكبير */
 .navbar.active {
