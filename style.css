@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth !important;
+}
 /* الألوان والخطوط الأساسية */
 body {
     font-family: 'Inter', sans-serif;
