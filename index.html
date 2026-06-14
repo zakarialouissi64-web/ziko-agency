@@ -257,31 +257,33 @@
 </form>
   </div>
 </section>
-  // EmailJS Form Submission Script (Version 4)
+  <!-- EmailJS Library -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
     const btn = document.getElementById('submit-btn');
     btn.innerText = 'Sending...';
 
-    // السوارت ديالك كاملين مجموعين ومقادين هنا
     const serviceID = 'service_z9ta52r';
     const templateID = 'a5tyfpo';
-    const publicKey = '05l64Yz6yVUKfBSB0'; // مكتوبة بـ l صغيرة ومقادة
+    const publicKey = '05l64Yz6yVUKfBSB0'; // دابا راها مقادة بـ l صغيرة 
 
     emailjs.sendForm(serviceID, templateID, this, publicKey)
         .then(() => {
             btn.innerText = 'Send Message';
             alert('تم إرسال الرسالة بنجاح! غتوصلك ف الجيمايل دابا.');
-            this.reset(); // كيمسح الفورم ملي كيتصيفط الميساج
+            this.reset();
         }, (err) => {
             btn.innerText = 'Send Message';
             alert('وقع مشكل ف الإرسال: ' + JSON.stringify(err));
         });
 });
-<!-- EmailJS Library -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="script.js"></script>
+</script>
+
+<script src="script.js"></script>
   <!-- Scroll to Top Button -->
 <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
