@@ -257,11 +257,28 @@
 </form>
   </div>
 </section>
-  <script type="text/javascript">
-   (function(){
-      emailjs.init("05l64Yz6yVUKfBSB0");
-   })();
-</script>
+  // EmailJS Form Submission Script (Version 4)
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const btn = document.getElementById('submit-btn');
+    btn.innerText = 'Sending...';
+
+    // السوارت ديالك كاملين مجموعين ومقادين هنا
+    const serviceID = 'service_z9ta52r';
+    const templateID = 'a5tyfpo';
+    const publicKey = '05l64Yz6yVUKfBSB0'; // مكتوبة بـ l صغيرة ومقادة
+
+    emailjs.sendForm(serviceID, templateID, this, publicKey)
+        .then(() => {
+            btn.innerText = 'Send Message';
+            alert('تم إرسال الرسالة بنجاح! غتوصلك ف الجيمايل دابا.');
+            this.reset(); // كيمسح الفورم ملي كيتصيفط الميساج
+        }, (err) => {
+            btn.innerText = 'Send Message';
+            alert('وقع مشكل ف الإرسال: ' + JSON.stringify(err));
+        });
+});
 <!-- EmailJS Library -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
