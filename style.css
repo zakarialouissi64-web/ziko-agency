@@ -1050,3 +1050,75 @@ backdrop-filter: blur(12px) !important;
 .footer-links a:hover {
   color: #3b82f6 !important; /* كيتلون بالأزرق فاش كيدوز الماوس */
 }
+/* ==================== CONTACT SECTION STYLES ==================== */
+.contact-section {
+  padding: 80px 5% !important;
+  background-color: #0b0f19 !important; /* نفس لون خلفية السيت الغامقة */
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.contact-container {
+  max-width: 600px !important; /* عبار مجموع ومقاد باش يجي ف الوسط */
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+.contact-container .section-title {
+  font-size: 2.5rem !important;
+  color: #ffffff !important;
+  margin-bottom: 10px !important;
+  font-weight: 700 !important;
+}
+
+.contact-container .section-subtitle {
+  color: #94a3b8 !important;
+  font-size: 1rem !important;
+  margin-bottom: 40px !important;
+}
+
+.contact-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100% !important;
+  padding: 15px 20px !important;
+  background-color: rgba(255, 255, 255, 0.03) !important; /* خلفية شفافة عصرية */
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  font-size: 1rem !important;
+  font-family: 'Poppins', sans-serif !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* فاش كيكليكي الكليان وسط الخانة يكتب */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none !important;
+  border-color: #3b82f6 !important; /* كيتلون باللون الأزرق */
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* زر الإرسال */
+.submit-btn {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important; /* تدرج أزرق ناضي */
+  color: #ffffff !important;
+  padding: 15px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* حركة الزر فاش كيدوز الماوس (البيسي والتلفون) */
+.submit-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4) !important;
+}
