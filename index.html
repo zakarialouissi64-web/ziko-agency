@@ -292,6 +292,26 @@
             behavior: "smooth"
         });
     });
+    // الكود ديال EmailJS باش يصيفط الميساج من الـ Contact Form
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const btn = document.getElementById('submit-btn');
+    btn.innerText = 'Sending...';
+
+    const serviceID = 'service_z9ta52r';
+    const templateID = 'a5tyfpo';
+
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+            btn.innerText = 'Send Message';
+            alert('تم إرسال الرسالة بنجاح! غتوصلك ف الجيمايل دابا.');
+            this.reset();
+        }, (err) => {
+            btn.innerText = 'Send Message';
+            alert('وقع مشكل ف الإرسال: ' + JSON.stringify(err));
+        });
+});
 </script>
   <script>
     // Animated Stats Counter Script
