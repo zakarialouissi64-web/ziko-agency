@@ -1007,3 +1007,46 @@ backdrop-filter: blur(12px) !important;
     transform: translateY(0) !important; /* كيطيروا لموقعهم الأصلي */
   }
 }
+/* ==================== FOOTER STYLES ==================== */
+.footer {
+  background-color: #0b0f19 !important; /* نفس لون خلفية السيت الغامقة */
+  padding: 30px 5% !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important; /* خط خفيف بزاف للفصل */
+  margin-top: 50px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.footer-content {
+  display: block !important; /* تفادي أي مشاكل ف التجاوب */
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  text-align: center !important; /* كيجيب كولشي ف الوسط ف التلفون والبيسي */
+}
+
+.footer-content p {
+  color: #94a3b8 !important; /* لون رمادي خفيف */
+  font-size: 0.9rem !important;
+  font-family: 'Poppins', sans-serif !important;
+  margin: 0 0 15px 0 !important; /* تيساع بين الكتابة والروابط */
+}
+
+.footer-links {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 25px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.footer-links a {
+  color: #94a3b8 !important;
+  text-decoration: none !important;
+  font-size: 0.9rem !important;
+  font-family: 'Poppins', sans-serif !important;
+  transition: color 0.3s ease !important;
+}
+
+.footer-links a:hover {
+  color: #3b82f6 !important; /* كيتلون بالأزرق فاش كيدوز الماوس */
+}
