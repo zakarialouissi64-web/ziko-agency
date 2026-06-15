@@ -260,11 +260,11 @@
 
 <!-- EmailJS Library -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
 <script type="text/javascript">
-// تفعيل الساروت العام
+// 1. تفعيل الساروت العام مرة واحدة ف الأول
 emailjs.init("O5I64Yz6yVUKFBSB0");
 
+// 2. الكود ديال الإرسال مرة وحدة وبلا تكرار
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault(); 
 
@@ -276,30 +276,6 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 
     const currentForm = event.target; 
 
-    emailjs.sendForm(serviceID, templateID, currentForm)
-        .then(() => {
-            btn.innerText = 'Send Message';
-            alert('تم إرسال الرسالة بنجاح ! غتوصلك ف الجيمايل دابا');
-            currentForm.reset(); 
-        }, (err) => {
-            btn.innerText = 'Send Message';
-            alert('وقع مشكل ف الإرسال: ' + JSON.stringify(err));
-        });
-});
-</script>
-
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); 
-
-    const btn = document.getElementById('submit-btn');
-    btn.innerText = 'Sending...';
-
-    const serviceID = 'service_z9ta52r';
-    const templateID = 'a5tyfpo';
-
-    const currentForm = event.target; 
-
-    // 2. هنا صيفطنا الفورم مقاد بلا ما نزيدو الساروت ف الأخير حيت عرفناه الفوق
     emailjs.sendForm(serviceID, templateID, currentForm)
         .then(() => {
             btn.innerText = 'Send Message';
