@@ -262,20 +262,23 @@
 
 <script type="text/javascript">
 document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+    event.preventDefault(); 
 
     const btn = document.getElementById('submit-btn');
     btn.innerText = 'Sending...';
 
     const serviceID = 'service_z9ta52r';
     const templateID = 'a5tyfpo';
-    const publicKey = '05I64Yz6yVUKfBSB0'; // دابا راها مقادة بـ l صغيرة 
+    const publicKey = 'O5I64Yz6yVUKFBSB0'; 
 
-    emailjs.sendForm(serviceID, templateID, this, publicKey)
+    // هنا كنعوضو "this" بـ event.target باش الكود يعرف الفورم نيشان
+    const currentForm = event.target; 
+
+    emailjs.sendForm(serviceID, templateID, currentForm, publicKey)
         .then(() => {
             btn.innerText = 'Send Message';
-            alert('تم إرسال الرسالة بنجاح! غتوصلك ف الجيمايل دابا.');
-            this.reset();
+            alert('تم إرسال الرسالة بنجاح ! غتوصلك ف الجيمايل دابا');
+            currentForm.reset(); // هادي كتمسح الكتبه من الفورم مورا الإرسال
         }, (err) => {
             btn.innerText = 'Send Message';
             alert('وقع مشكل ف الإرسال: ' + JSON.stringify(err));
