@@ -244,23 +244,27 @@
     <p class="section-subtitle">Have a project in mind? Let's build something amazing together.</p>
     
     <form id="contact-form" class="contact-form">
-  <div class="form-group">
-    <input type="text" id="user_name" name="user_name" placeholder="Your Name" required>
-  </div>
-  <div class="form-group">
-    <input type="email" id="user_email" name="user_email" placeholder="Your Email" required>
-  </div>
-  <div class="form-group">
-    <textarea id="user_message" name="user_message" placeholder="Your Message" rows="5" required></textarea>
-  </div>
-  <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>
+    <div class="form-group">
+        <input type="text" id="user_name" name="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+        <input type="email" id="user_email" name="email" placeholder="Your Email" required>
+    </div>
+    <div class="form-group">
+        <textarea id="user_message" name="message" placeholder="Your Message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>
 </form>
-  </div>
+</div>
 </section>
-  <!-- EmailJS Library -->
+
+<!-- EmailJS Library -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script type="text/javascript">
+// تفعيل الساروت العام
+emailjs.init("O5I64Yz6yVUKFBSB0");
+
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault(); 
 
@@ -269,16 +273,38 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 
     const serviceID = 'service_z9ta52r';
     const templateID = 'a5tyfpo';
-    const publicKey = 'O5I64Yz6yVUKFBSB0'; 
 
-    // هنا كنعوضو "this" بـ event.target باش الكود يعرف الفورم نيشان
     const currentForm = event.target; 
 
-    emailjs.sendForm(serviceID, templateID, currentForm, publicKey)
+    emailjs.sendForm(serviceID, templateID, currentForm)
         .then(() => {
             btn.innerText = 'Send Message';
             alert('تم إرسال الرسالة بنجاح ! غتوصلك ف الجيمايل دابا');
-            currentForm.reset(); // هادي كتمسح الكتبه من الفورم مورا الإرسال
+            currentForm.reset(); 
+        }, (err) => {
+            btn.innerText = 'Send Message';
+            alert('وقع مشكل ف الإرسال: ' + JSON.stringify(err));
+        });
+});
+</script>
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const btn = document.getElementById('submit-btn');
+    btn.innerText = 'Sending...';
+
+    const serviceID = 'service_z9ta52r';
+    const templateID = 'a5tyfpo';
+
+    const currentForm = event.target; 
+
+    // 2. هنا صيفطنا الفورم مقاد بلا ما نزيدو الساروت ف الأخير حيت عرفناه الفوق
+    emailjs.sendForm(serviceID, templateID, currentForm)
+        .then(() => {
+            btn.innerText = 'Send Message';
+            alert('تم إرسال الرسالة بنجاح ! غتوصلك ف الجيمايل دابا');
+            currentForm.reset(); 
         }, (err) => {
             btn.innerText = 'Send Message';
             alert('وقع مشكل ف الإرسال: ' + JSON.stringify(err));
