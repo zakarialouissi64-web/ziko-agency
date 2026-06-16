@@ -2,15 +2,30 @@ html {
   scroll-behavior: smooth !important;
 }
 /* الألوان والخطوط الأساسية */
+/* 1. تعريف الألوان الافتراضية والجديدة */
+:root {
+    --bg-color: #0b0f19;       /* لون السيت الحالي ديالك */
+    --text-color: #f8fafc;     /* أبيض ناصع للكتيبة */
+    --card-bg: #111827;        /* لون الخانات ف الدارك */
+    --accent-color: #3b82f6;   /* الزرق ديال الأجينسي */
+}
+
+/* الألوان فاش يرجع Light Mode */
+body.light-mode {
+    --bg-color: #f8fafc;       /* رمادي خفيف مريح للعين */
+    --text-color: #0b0f19;     /* كحل غامق للكتيبة */
+    --card-bg: #ffffff;        /* خانات بيضين */
+    --accent-color: #2563eb;   /* زرق واضح */
+}
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #0b0f19; /* كحلي غامق بزاف فخم */
-    color: #f8fafc;
+    background-color: var(--bg-color); /* 🎯 عوضنا اللون الثابت بـ المتغير */
+    color: var(--text-color);         /* 🎯 عوضنا لون الكتيبة بـ المتغير */
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease; /* هادي كتدير أنيميشن رطبة فاش كتقلب الألوان */
 }
-
 header {
     display: flex;
     justify-content: space-between;
@@ -1121,4 +1136,41 @@ backdrop-filter: blur(12px) !important;
 .submit-btn:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4) !important;
+}
+/* 3. ستيل بوتون القلابة (للبيسي والتلفون) */
+.theme-btn {
+    background: var(--card-bg);
+    border: 2px solid var(--accent-color);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    margin-left: 15px; /* كيعطيه اتساع على زرار Contact ف البيسي */
+}
+
+/* تأثير خفيف فاش كيدوز الكليان السوري ف البيسي */
+@media (hover: hover) {
+    .theme-btn:hover {
+        transform: scale(1.1) rotate(15deg); /* كيميل شوية فاش كدوز عليه */
+    }
+}
+
+/* 📱 إعدادات خاصة بالتلفون (شاشات صغر من 768px) */
+@media (max-width: 768px) {
+    .theme-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+        position: fixed; /* كيبقا ديما باين وخا يهبط ف السيت */
+        bottom: 20px;
+        left: 20px;
+        z-index: 9999; /* باش يجي فوق كاع العناصر */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* ضل خفيف */
+    }
 }
