@@ -1368,18 +1368,12 @@ backdrop-filter: blur(12px) !important;
         grid-template-columns: 1fr !important; /* كارت واحدة ف السطر ف التلفون */
         gap: 25px !important;
     }
-}
-/* ==========================================================================
-   ⚙️ التظبيط النهائي والنظيف للهيدر والمسافات
-   ========================================================================== */
-
-/* 1. إصلاح الهيدر والـ Navbar باش يبقاو ديما الفوق ف البيسي والتلفون */
 header, .navbar {
     position: sticky !important;
-    top: 0 !important;
+    top: 0 !important;   /* ← تأكد أنها مكتوبة top بـ o واحدة ماشي p */
     z-index: 9999 !important;
+    background-color: var(--body-bg) !important;
 }
-
 /* 2. تنظيف مسافات فقرة الأعمال (Our Latest Projects) ف البيسي */
 .portfolio-section {
     padding: 100px 8% !important;
