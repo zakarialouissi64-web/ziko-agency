@@ -414,5 +414,31 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     });
   });
 </script>
+  <script>
+// --- كود الـ Dark / Light Mode المطور ---
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+// 1. تشيك واش الكليان ديجا اختار شي مود ف المتصفح
+if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-mode');
+    if (themeIcon) themeIcon.innerText = '☀️';
+}
+
+// 2. الاستماع للكليك (شغال ف البيسي والتلفون بجوج)
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+            if (themeIcon) themeIcon.innerText = '☀️';
+            localStorage.setItem('theme', 'light');
+        } else {
+            if (themeIcon) themeIcon.innerText = '🌙';
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+}
+</script>
 </body>
 </html>
