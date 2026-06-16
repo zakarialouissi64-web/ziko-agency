@@ -1448,3 +1448,13 @@ header, .navbar {
     margin-top: 40px !important;
     position: relative !important;
 }
+/* 🔝 1. إعطاء الأسبقية للـ Navbar باش تبقى ديما فوق كاع العناصر فاش كتهبط */
+header, .navbar {
+    z-index: 9999 !important;
+}
+
+/* 📐 2. دفع عنوان فقرة الأعمال لتحت شوية باش ما يبقاش مخشي تحت الـ Navbar */
+.portfolio-section h2 {
+    margin-top: 40px !important;
+    position: relative !important;
+}
