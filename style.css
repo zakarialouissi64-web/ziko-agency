@@ -1174,3 +1174,42 @@ backdrop-filter: blur(12px) !important;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* ضل خفيف */
     }
 }
+/* 📱 تحسين منيو التلفون ليكون أكثر احترافية وعصري */
+@media (max-width: 768px) {
+    /* 1. رد الخلفية مضببة بحال الزجاج الشفاف (Glassmorphism) */
+    .navbar {
+        background: rgba(15, 23, 42, 0.75) !important; /* لون كحلي شفاف */
+        backdrop-filter: blur(15px) !important; /* الضبابة السحرية */
+        -webkit-backdrop-filter: blur(15px) !important; /* لدعم متصفح Safari ف الآيفون */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 25px !important; /* اتساع مريح بين الروابط */
+    }
+
+    /* 2. تحسين شكل الكتيبة والروابط ف التلفون */
+    .nav-links a, nav a, .navbar a {
+        font-size: 1.3rem !important; /* قياس متناسق مع شاشة الهاتف */
+        font-weight: 500 !important; /* خط أنيق ومش غليظ بزاف */
+        letter-spacing: 2px !important; /* متسع خفيف بين الحروف بحال الشركات الكبار */
+        text-transform: uppercase !important;
+        padding: 10px 20px !important;
+        transition: transform 0.2s ease, color 0.3s ease !important;
+    }
+
+    /* 3. تأثير حركي خفيف فاش كيتبرك على الرابط ف التلفون */
+    .nav-links a:active, nav a:active, .navbar a:active {
+        transform: scale(0.95) !important; /* كيتجمع شوية فاش كتبرك عليه بصبعك */
+        color: #3b82f6 !important; /* كيضوي بالزرق */
+    }
+    
+    /* 4. تعديل زرار Contact باش يجي ديزاين Clean */
+    .nav-contact-btn {
+        background: #3b82f6 !important;
+        color: #ffffff !important;
+        border-radius: 30px !important; /* دورة دائرية كاملة أنيقة */
+        padding: 12px 35px !important;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4) !important; /* ضوء أزرق خفيف تحت منو */
+    }
+}
