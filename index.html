@@ -1,444 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ziko Agency | Digital Solutions</title>
+Notepad++ v8.9.6.4 vulnerability fix, regression fix & bug-fix:
 
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-</head>
+ 1. Fix TOCTOU (Time-of-check to time-of-use) issue in HMAC implementation.
+ 2. Fix MSI installer regression that leaves old version entry in Add/Remove Programs.
+ 3. Fix "Open Containing Folder in Explorer" launching extra explorer processes.
 
-<body>
 
-  <!-- NAV -->
-  <header>
-  <!-- اللوغو ديال الوكالة -->
-  <div class="logo">ZIKO<span>AGENCY</span></div>
-  
-  <!-- أيقونة الأشرطة الثلاثة اللي غتبان غير فالتلفون -->
-  <div class="menu-toggle" id="mobile-menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </div>
+Notepad++ v8.9.6.2 vulnerability fixes:
 
-  <!-- القائمة الرئيسية للروابط -->
- <nav class="navbar">
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#contact-section" class="nav-contact-btn">Contact</a>
-    
-    <!-- 🎯 هاهو البوتون تزاد هنا ف السطر 36 -->
-    <button id="theme-toggle" class="theme-btn">
-        <span id="theme-icon">🌙</span>
-    </button>
-</nav> 
-</header>
+ 1. Fix a bypass scenario in the previously fixed vulnerability (CVE-2026-48778) that was not fully addressed.
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>We Build Powerful Digital Experiences</h1>
-      <p>Ziko Agency helps brands grow with modern websites, ads, and digital strategy.</p>
-      <a href="#contact-section" class="btn">Start Your Project</a>
-    </div>
-  </section>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <h2>Our Services</h2>
-    <div class="grid">
+Notepad++ v8.9.6.1 vulnerability fixes:
 
-      <div class="card">
-        <h3>Website Design</h3>
-        <p>Modern, fast and responsive websites for your business.</p>
-      </div>
+ 1. Fix bad formed COPYDATASTRUCT makes Notepad++ crash (CVE-2026-48770).
+ 2. Fix arbitrary code execution vulnerability via config.xml (CVE-2026-48778).
+ 3. Fix arbitrary code execution vulnerability via shortcuts.xml (CVE-2026-48778).
 
-      <div class="card">
-        <h3>Social Media</h3>
-        <p>Grow your brand and audience on Instagram & Facebook.</p>
-      </div>
 
-      <div class="card">
-        <h3>Meta Ads</h3>
-        <p>High converting ad campaigns that bring real clients.</p>
-      </div>
+Notepad++ v8.9.6 vulnerability fix, regression fixes & bug-fixes:
 
-      <div class="card">
-        <h3>Branding</h3>
-        <p>Professional identity design for your business growth.</p>
-      </div>
+ 1. Fix vulnerability (CVE-2026-46710) of v8.9.4 & v8.9.5 installer.
+ 2. Fix x86 installer regression of not showing installation entry in Control Panel's "Unstall a program".
+ 3. Fix x86 installer regression where context menu not installed or uninstalled correctly.
+ 4. Fix UAC prompt display regression (“Notepad++ installer” instead of “Notepad++”) for Notepad++ v8.9.5.
+ 5. Fix incorrect bevaviour when saving dirty read-only files.
+ 6. Fix regression where saving a UDL file removed XML declaration.
 
-    </div>
-  </section>
 
-  <!-- قسم التكنولوجيات مضمون وشغال 100% بـ Font Awesome -->
-<section class="technologies">
-    <h2>Technologies We Master</h2>
-    <div class="technologies-grid">
-        
-        <!-- React -->
-        <div class="tech-card">
-            <i class="fa-brands fa-react tech-icon-font" style="color: #61dbfb;"></i>
-            <p class="tech-name">React</p>
-        </div>
+Notepad++ v8.9.5 regression fixes, bug-fixes & new improvements:
 
-        <!-- JavaScript -->
-        <div class="tech-card">
-            <i class="fa-brands fa-js tech-icon-font" style="color: #f7df1e;"></i>
-            <p class="tech-name">JavaScript</p>
-        </div>
+ 1. Fix updating issue where using v8.9.4 32-bits installer creates duplicate "Uninstall a program" entries.
+ 2. Fix v8.9.4 64-bits installer error message caused by MSIX on Win10.
+ 3. Fix regression in UDL XML files causing an EOL parsing issue.
+ 4. Update Scintilla to 5.6.2 & Lexilla to 5.4.9.
+ 5. Add option to synchronize zoom level across views.
+ 6. Fix MSI installer writting language info to HKCU instead of HKLM.
+ 7. Fix imported UDLs not appearing in the language menu without restarting Notepad++.
+ 8. Make "(?)" tooltip in preferences & Find in Files dialogs persitant & reduce display delay.
+ 9. Fix visual glitch in Mark dialog when in reduced mode.
 
-        <!-- HTML5 -->
-        <div class="tech-card">
-            <i class="fa-brands fa-html5 tech-icon-font" style="color: #e34f26;"></i>
-            <p class="tech-name">HTML5</p>
-        </div>
 
-        <!-- CSS3 -->
-        <div class="tech-card">
-            <i class="fa-brands fa-css3-alt tech-icon-font" style="color: #1572b6;"></i>
-            <p class="tech-name">CSS3</p>
-        </div>
+Notepad++ v8.9.4 crash fixes, bug-fixes & new improvements:
 
-    </div>
-</section>
+ 1. Fix crashes in FindInFiles when nativeLang.xml's "find-result-hits" contains "%s".
+ 2. Fix drop-file crash when file path length reaches 259 characters.
+ 3. Fix crash caused by undoing column editor bad input in virtual space.
+ 4. Fix bad column editor input in reverse-direction column selection on virtual space.
+ 5. Update to Scintilla 5.6.1 & Lexilla 5.4.8.
+ 6. Fix EOL conversion to Windows format not working (Scintilla update related).
+ 7. Fix rendering corruption in .bat files (Lexilla update related).
+ 8. Fix quote escaping causing incorrect JSON syntax highlighting (Lexilla update related).
+ 9. Fix MSI installation error due to context menu item registration.
+10. Fix NSIS installation stalling caused by context menu registration issue.
+11. Add NPP_LANG property to install a specific localization file for MSI.
+12. Fix MSI installer display random Hexadecimal number as name on UAC.
+13. Add version info into MSI file property (as value of "Comments").
+14. Fix minimized window not restoring in administrator mode.
+15. Fix Unicode search mismatching ANSI character '?'.
+16. Fix Column Editor regression with empty fields.
+17. Fix floating dialog content not displaying in certain situations.
+18. Fix visual glitch when toggling group view in Document List.
+19. Support improved C++ 11 raw string literal handling.
+20. Fix visual glitch in the Mark dialog.
 
-<section class="features-section">
-    <h2>Why Choose Zakaria Agency?</h2>
-    <p class="features-subtitle">We provide top-notch digital solutions to elevate your business and maximize your online presence.</p>
-    
-    <div class="features-grid">
-        
-        <div class="feature-card">
-            <div class="feature-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="45" height="45">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                </svg>
-            </div>
-            <h3>High Performance</h3>
-            <p>Our websites are ultra-fast and fully optimized to deliver the best user experience and boost conversions.</p>
-        </div>
 
-        <div class="feature-card">
-            <div class="feature-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="45" height="45">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                </svg>
-            </div>
-            <h3>Modern Design</h3>
-            <p>Premium, sleek, and 100% responsive designs tailored to look stunning on phones, tablets, and desktops.</p>
-        </div>
+Get more info on
+https://notepad-plus-plus.org/downloads/v8.9.6.2/
 
-        <div class="feature-card">
-            <div class="feature-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="45" height="45">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                </svg>
-            </div>
-            <h3>Dedicated Support</h3>
-            <p>We guide you step-by-step from initial concept to launch, providing continuous technical support for your project.</p>
-        </div>
 
-    </div>
-</section>
+Included plugins:
 
-<section id="portfolio" class="portfolio-section">
-    <h2>Our Latest Projects</h2>
-    <p class="portfolio-subtitle">Discover some of the premium digital solutions we've built at Zakaria Agency.</p>
-    
-    <div class="portfolio-grid">
-        
-        <div class="portfolio-card">
-            <div class="portfolio-img-box">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=60" alt="E-Commerce Platform">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-tag">Web Development</span>
-                </div>
-            </div>
-            <div class="portfolio-info">
-                <h3>NextGen E-Commerce</h3>
-                <p>A fully responsive online store built for seamless shopping experiences with secure checkout.</p>
-            </div>
-        </div>
+ 1.  NppExport v0.4
+ 2.  Converter v4.7
+ 3.  Mime Tool v3.1
 
-        <div class="portfolio-card">
-            <div class="portfolio-img-box">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=60" alt="SaaS Dashboard">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-tag">SaaS / Web App</span>
-                </div>
-            </div>
-            <div class="portfolio-info">
-                <h3>Analytics Dashboard</h3>
-                <p>Advanced real-time data visualization platform with interactive charts and custom reporting.</p>
-            </div>
-        </div>
 
-        <div class="portfolio-card">
-            <div class="portfolio-img-box">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop&q=60" alt="Corporate Website">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-tag">UI/UX Design</span>
-                </div>
-            </div>
-            <div class="portfolio-info">
-                <h3>Zakaria Agency Site</h3>
-                <p>A premium and sleek modern agency website tailored to convert visitors into loyal clients.</p>
-            </div>
-        </div>
+Updater (Installer only):
 
-    </div>
-</section>
-  
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <h2>About Ziko Agency</h2>
-    <p>
-      We are a digital agency focused on building strong online presence for businesses.
-      Our goal is to turn your ideas into a powerful digital identity.
-    </p>
-  </section>
-<!-- Stats Counter Section -->
-<section class="stats-section">
-    <div class="stats-container">
-        <!-- Stat 1 -->
-        <div class="stat-box">
-            <h3 class="stat-number" data-target="15">0</h3>
-            <p class="stat-label">Projects Delivered</p>
-        </div>
-        <!-- Stat 2 -->
-        <div class="stat-box">
-            <h3 class="stat-number" data-target="10">0</h3>
-            <p class="stat-label">Happy Clients</p>
-        </div>
-        <!-- Stat 3 -->
-        <div class="stat-box">
-            <h3 class="stat-number" data-target="100">0</h3>
-            <p class="stat-label">Success Rate (%)</p>
-        </div>
-    </div>
-</section>
-  <div id="contact-section" style="display: flex !important; justify-content: center !important; width: 100% !important; box-sizing: border-box !important;">
-  <div class="contact-buttons-container" style="display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 24px !important; width: 100% !important; max-width: 300px !important; margin: 30px auto !important;">
-    
-    <!-- زر الواتساب -->
-    <a href="https://wa.me/212651172220" target="_blank" class="btn-contact btn-whatsapp">
-      <i class="fab fa-whatsapp"></i> Whatsapp
-    </a>
-
-    <!-- زر الإنستغرام -->
-    <a href="https://instagram.com/zakaria_louissi" target="_blank" class="btn-contact btn-instagram">
-      <i class="fab fa-instagram"></i> Instagram
-    </a>
-
-  </div>
-</div>
-<!-- ==================== CONTACT SECTION ==================== -->
-<section id="contact" class="contact-section">
-  <div class="contact-container">
-    <h2 class="section-title">Get In Touch</h2>
-    <p class="section-subtitle">Have a project in mind? Let's build something amazing together.</p>
-    
-    <form id="contact-form" class="contact-form">
-    <div class="form-group">
-        <input type="text" id="user_name" name="name" placeholder="Your Name" required>
-    </div>
-    <div class="form-group">
-        <input type="email" id="user_email" name="email" placeholder="Your Email" required>
-    </div>
-    <div class="form-group">
-        <textarea id="user_message" name="message" placeholder="Your Message" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>
-</form>
-</div>
-</section>
-
-<!-- EmailJS Library -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type="text/javascript">
-// 1. تفعيل الساروت العام مرة واحدة ف الأول
-emailjs.init("05l64Yz6yVUKfBSB0");
-
-// 2. الكود ديال الإرسال مرة وحدة وبلا تكرار
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); 
-
-    const btn = document.getElementById('submit-btn');
-    btn.innerText = 'Sending...';
-
-    const serviceID = 'service_z9ta52r';
-    const templateID = 'a5tyfpo';
-
-    const currentForm = event.target; 
-
-    emailjs.sendForm(serviceID, templateID, currentForm)
-        .then(() => {
-            btn.innerText = 'Send Message';
-            alert('تم إرسال الرسالة بنجاح ! غتوصلك ف الجيمايل دابا');
-            currentForm.reset(); 
-        }, (err) => {
-            btn.innerText = 'Send Message';
-            alert('وقع مشكل ف الإرسال: ' + JSON.stringify(err));
-        });
-});
-</script>
-
-<script src="script.js"></script>
-  <!-- Scroll to Top Button -->
-<button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
-        <line x1="12" y1="19" x2="12" y2="5"></line>
-        <polyline points="5 12 12 5 19 12"></polyline>
-    </svg>
-</button>
-  <script>
-    // Get the button element
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
-    // Show button when user scrolls down 300px from the top
-    window.onscroll = function() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            scrollToTopBtn.classList.add("show");
-        } else {
-            scrollToTopBtn.classList.add("show") ? null : scrollToTopBtn.classList.remove("show");
-        }
-    };
-
-    // Smooth scroll to top when clicked
-    scrollToTopBtn.addEventListener("click", function() {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-    // الكود ديال EmailJS باش يصيفط الميساج من الـ Contact Form
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const btn = document.getElementById('submit-btn');
-    btn.innerText = 'Sending...';
-
-    const serviceID = 'service_z9ta52r';
-    const templateID = 'a5tyfpo';
-
-    emailjs.sendForm(serviceID, templateID, this)
-        .then(() => {
-            btn.innerText = 'Send Message';
-            alert('تم إرسال الرسالة بنجاح! غتوصلك ف الجيمايل دابا.');
-            this.reset();
-        }, (err) => {
-            btn.innerText = 'Send Message';
-            alert('وقع مشكل ف الإرسال: ' + JSON.stringify(err));
-        });
-});
-</script>
-  <script>
-    // Animated Stats Counter Script
-    const stats = document.querySelectorAll('.stat-number');
-    const speed = 200; // وكل ما صغرتي هاد الرقم كيزيد يسرع الحساب
-
-    const startCounters = () => {
-        stats.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const inc = target / speed;
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 15);
-                } else {
-                    // إضافة علامة + أو % ف الأخير بشكل نقي
-                    if(target === 100) {
-                        counter.innerText = target + '%';
-                    } else {
-                        counter.innerText = '+' + target;
-                    }
-                }
-            };
-            updateCount();
-        });
-    };
-
-    // تشغيل العداد فاش يوصل الكليان للقسم (Intersection Observer)
-    const statsSection = document.querySelector('.stats-section');
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                startCounters();
-                observer.unobserve(entry.target); // كيتشغل مرة وحدة بركة
-            }
-        });
-    }, { threshold: 0.5 });
-
-    if(statsSection) {
-        observer.observe(statsSection);
-    }
-</script>
-  <!-- ==================== FOOTER SECTION ==================== -->
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2026 Ziko Agency. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-    </div>
-  </div>
-</footer>
-  <script>
-  // كود تشغيل قائمة الهاتف
-  const mobileMenu = document.getElementById('mobile-menu');
-  const navbar = document.querySelector('.navbar');
-
-  mobileMenu.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    navbar.classList.toggle('active');
-  });
-
-  // سد المنيو أوتوماتيكياً فاش تكليكي على أي رابط وسط منها
-  document.querySelectorAll('.navbar a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      navbar.classList.remove('active');
-    });
-  });
-</script>
-  <script>
-// --- كود الـ Dark / Light Mode المطور ---
-const themeToggleBtn = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
-
-// 1. تشيك واش الكليان ديجا اختار شي مود ف المتصفح
-if (localStorage.getItem('theme') === 'light') {
-    document.body.classList.add('light-mode');
-    if (themeIcon) themeIcon.innerText = '☀️';
-}
-
-// 2. الاستماع للكليك (شغال ف البيسي والتلفون بجوج)
-if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-        
-        if (document.body.classList.contains('light-mode')) {
-            if (themeIcon) themeIcon.innerText = '☀️';
-            localStorage.setItem('theme', 'light');
-        } else {
-            if (themeIcon) themeIcon.innerText = '🌙';
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-}
-</script>
-</body>
-</html>
+* WinGUp (for Notepad++) v5.4.1
