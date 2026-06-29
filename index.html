@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Anton&display=swap" rel="stylesheet"/>
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init('05l64Yz6yVUKfBSB0');</script>
 <style>
 :root{
   --bg:#06080F;--bg2:#090C18;--bg3:#0D1020;--card:#101422;
@@ -513,7 +517,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.25rem 
   </div>
 </section>
 
-<!-- ABOUT (moved before contact) -->
+<!-- ABOUT -->
 <section id="about">
   <div class="about-wrap">
     <div class="about-left rv">
@@ -541,7 +545,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.25rem 
   </div>
 </section>
 
-<!-- CONTACT (moved after about) -->
+<!-- CONTACT -->
 <section id="contact" style="background:var(--bg2)">
   <div class="contact-wrap">
     <div class="contact-left rv">
@@ -581,7 +585,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.25rem 
 <script>
 // Nav scroll
 var nav=document.getElementById('nav');
-window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{ passive:true});
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
 
 // Hamburger
 var ham=document.getElementById('ham'),mob=document.getElementById('mob');
@@ -623,22 +627,48 @@ if(aboutSec){
 var btt=document.getElementById('btt');
 window.addEventListener('scroll',function(){btt.classList.toggle('show',window.scrollY>400)},{passive:true});
 
-// Contact form
+// ══ CONTACT FORM WITH EMAILJS ══
 function sendMsg(){
   var btn=document.getElementById('fsub'),msg=document.getElementById('fmsg');
   var fn=document.getElementById('fn').value.trim();
+  var ln=document.getElementById('ln').value.trim();
   var em=document.getElementById('em').value.trim();
+  var sv=document.getElementById('sv').value;
   var ms=document.getElementById('ms').value.trim();
-  if(!fn||!em||!ms){msg.className='f-msg err';msg.textContent='⚠️ Please fill in name, email and message.';return}
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){msg.className='f-msg err';msg.textContent='⚠️ Please enter a valid email.';return}
-  btn.disabled=true;document.getElementById('ftxt').textContent='Sending...';msg.className='f-msg';
-  setTimeout(function(){
+
+  msg.className='f-msg';
+
+  if(!fn||!em||!ms){
+    msg.className='f-msg err';
+    msg.textContent='⚠️ Please fill in name, email and message.';
+    return;
+  }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){
+    msg.className='f-msg err';
+    msg.textContent='⚠️ Please enter a valid email.';
+    return;
+  }
+
+  btn.disabled=true;
+  document.getElementById('ftxt').textContent='Sending...';
+
+  emailjs.send('service_z9ta52r','a5tyfpo',{
+    from_name: fn+' '+ln,
+    from_email: em,
+    service_needed: sv||'Not specified',
+    message: ms
+  }).then(function(){
     msg.className='f-msg ok';
     msg.textContent="✅ Message received! We'll get back to you within 24 hours.";
-    btn.disabled=false;document.getElementById('ftxt').textContent='Send Message →';
     ['fn','ln','em','ms'].forEach(function(id){document.getElementById(id).value=''});
     document.getElementById('sv').value='';
-  },1200);
+  }).catch(function(){
+    msg.className='f-msg err';
+    msg.textContent='❌ Something went wrong. Please try again or contact us on WhatsApp.';
+  }).finally(function(){
+    btn.disabled=false;
+    document.getElementById('ftxt').textContent='Send Message →';
+  });
 }
 
 // ══ TECH FLOAT ANIMATION ══
@@ -724,3 +754,5 @@ function sendMsg(){
 </script>
 </body>
 </html>
+
+
