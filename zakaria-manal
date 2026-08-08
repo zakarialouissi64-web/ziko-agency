@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zakaria & Manal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose:#C9184A;
+    --blush:#FFC2D1;
+    --blush-light:#FFE5EC;
+    --cream:#FFF6F5;
+    --burgundy:#6D0B2B;
+    --gold:#C9A227;
+    --ink:#3D0B1E;
+    --ink-soft:#7A3B4E;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    overflow-x:hidden;
+  }
+  h1,h2,.display{
+    font-family:'Playfair Display', serif;
+  }
+
+  /* ===== Floating hearts background ===== */
+  .hearts-bg{
+    position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden;
+  }
+  .heart-particle{
+    position:absolute; bottom:-10%; font-size:20px; color:var(--blush);
+    animation:floatUp linear infinite;
+    opacity:0.6;
+  }
+  @keyframes floatUp{
+    0%{ transform:translateY(0) rotate(0deg); opacity:0; }
+    10%{ opacity:0.6; }
+    90%{ opacity:0.4; }
+    100%{ transform:translateY(-110vh) rotate(360deg); opacity:0; }
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative; z-index:1;
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:2rem 1.5rem;
+    background:radial-gradient(ellipse at center, var(--blush-light) 0%, var(--cream) 70%);
+  }
+  .hero-eyebrow{
+    font-size:0.85rem; letter-spacing:0.15em; color:var(--rose); font-weight:500;
+    margin-bottom:1.2rem; text-transform:uppercase;
+  }
+  .hero-names{
+    font-size:clamp(2.5rem, 9vw, 5.5rem);
+    color:var(--burgundy);
+    line-height:1.25;
+    display:flex; align-items:center; justify-content:center; gap:0.5em;
+    flex-wrap:wrap;
+  }
+  .hero-heart{
+    color:var(--rose);
+    font-size:0.55em;
+    display:inline-block;
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.18); }
+  }
+  .hero-sub{
+    margin-top:1.5rem; font-size:1.05rem; color:var(--ink-soft); max-width:32rem;
+    line-height:1.9;
+  }
+  .counter-wrap{
+    margin-top:2.8rem;
+    background:#fff;
+    border:1px solid var(--blush);
+    border-radius:18px;
+    padding:1.4rem 2rem;
+    box-shadow:0 10px 30px -12px rgba(201,24,74,0.25);
+  }
+  .counter-label{
+    font-size:0.8rem; color:var(--ink-soft); margin-bottom:0.4rem;
+  }
+  .counter-value{
+    font-size:2.2rem; color:var(--rose); font-weight:700; font-family:'Playfair Display',serif;
+  }
+  .counter-date-row{
+    margin-top:0.8rem; display:flex; align-items:center; justify-content:center; gap:0.5rem;
+    font-size:0.8rem; color:var(--ink-soft);
+  }
+  .counter-date-row input{
+    font-family:'Poppins', sans-serif;
+    border:1px solid var(--blush); border-radius:8px; padding:4px 8px; color:var(--ink);
+  }
+  .scroll-hint{
+    position:absolute; bottom:1.8rem; left:50%; transform:translateX(-50%);
+    color:var(--ink-soft); font-size:1.4rem; animation:bounce 2s infinite;
+  }
+  @keyframes bounce{
+    0%,100%{ transform:translate(-50%,0); }
+    50%{ transform:translate(-50%,8px); }
+  }
+
+  section{ position:relative; z-index:1; padding:5rem 1.5rem; max-width:900px; margin:0 auto; }
+  .section-title{
+    text-align:center; font-size:clamp(1.8rem,4vw,2.6rem); color:var(--burgundy);
+    margin-bottom:0.6rem;
+  }
+  .section-sub{
+    text-align:center; color:var(--ink-soft); margin-bottom:3rem; font-size:0.95rem;
+  }
+  .divider{
+    width:60px; height:2px; background:var(--gold); margin:1.2rem auto 0;
+  }
+
+  /* ===== Gallery ===== */
+  .gallery{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1.1rem;
+  }
+  .photo-slot{
+    position:relative; aspect-ratio:4/5; border-radius:16px; overflow:hidden;
+    background:var(--blush-light);
+    border:2px dashed var(--blush);
+    display:flex; align-items:center; justify-content:center; flex-direction:column;
+    cursor:pointer; transition:transform .25s ease, border-color .25s ease;
+  }
+  .photo-slot:hover{ transform:translateY(-4px); border-color:var(--rose); }
+  .photo-slot img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  }
+  .photo-slot .placeholder-icon{ font-size:2rem; color:var(--rose); }
+  .photo-slot .placeholder-text{ margin-top:0.5rem; font-size:0.8rem; color:var(--ink-soft); text-align:center; padding:0 0.6rem; }
+  .photo-slot input[type=file]{ display:none; }
+  .photo-slot .remove-btn{
+    position:absolute; top:8px; right:8px; background:rgba(61,11,30,0.65); color:#fff;
+    border:none; border-radius:50%; width:26px; height:26px; font-size:0.85rem;
+    display:none; cursor:pointer; z-index:2;
+  }
+  .photo-slot:hover .remove-btn{ display:block; }
+  .gallery-note{ text-align:center; font-size:0.75rem; color:var(--ink-soft); margin-top:1.4rem; }
+
+  /* ===== Timeline ===== */
+  .timeline{
+    position:relative; padding-left:2rem; border-left:2px solid var(--blush);
+  }
+  .timeline-item{ position:relative; padding-bottom:2.4rem; padding-left:1.6rem; }
+  .timeline-item:last-child{ padding-bottom:0; }
+  .timeline-item::before{
+    content:''; position:absolute; left:-2.05rem; top:4px;
+    width:14px; height:14px; border-radius:50%; background:var(--rose); border:3px solid var(--cream);
+  }
+  .timeline-date{ font-size:0.8rem; color:var(--rose); font-weight:500; margin-bottom:0.3rem; }
+  .timeline-title{ font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--burgundy); margin-bottom:0.3rem; }
+  .timeline-text{ color:var(--ink-soft); font-size:0.92rem; line-height:1.8; }
+
+  /* ===== Love letter ===== */
+  .letter-card{
+    background:#fff; border-radius:20px; padding:2.8rem 2.2rem;
+    box-shadow:0 20px 50px -20px rgba(109,11,43,0.25);
+    position:relative; text-align:center;
+  }
+  .letter-card::before{
+    content:'"'; font-family:'Playfair Display',serif; font-size:5rem; color:var(--blush);
+    position:absolute; top:0.4rem; left:1.4rem; line-height:1;
+  }
+  .letter-text{
+    font-family:'Playfair Display', serif; font-size:1.25rem; line-height:2.1; color:var(--ink);
+  }
+  .letter-sign{
+    margin-top:1.6rem; color:var(--rose); font-weight:700; font-family:'Playfair Display',serif; font-size:1.15rem;
+  }
+
+  footer{
+    text-align:center; padding:3rem 1.5rem 4rem; position:relative; z-index:1;
+    color:var(--ink-soft); font-size:0.85rem;
+  }
+  footer .foot-heart{ color:var(--rose); }
+
+  /* ===== Messages ===== */
+  .chat-card{
+    background:#fff; border-radius:20px; border:1px solid var(--blush);
+    box-shadow:0 20px 50px -20px rgba(109,11,43,0.2);
+    overflow:hidden;
+  }
+  .sender-toggle{
+    display:flex; border-bottom:1px solid var(--blush-light);
+  }
+  .sender-btn{
+    flex:1; padding:0.9rem; text-align:center; font-family:'Poppins',sans-serif;
+    font-size:0.9rem; font-weight:500; color:var(--ink-soft); background:#fff;
+    border:none; cursor:pointer; transition:background .2s ease, color .2s ease;
+  }
+  .sender-btn.active{ background:var(--blush-light); color:var(--rose); }
+  .chat-log{
+    height:340px; overflow-y:auto; padding:1.4rem; display:flex; flex-direction:column; gap:0.7rem;
+  }
+  .chat-empty{ margin:auto; color:var(--ink-soft); font-size:0.9rem; text-align:center; }
+  .msg-bubble{
+    max-width:75%; padding:0.6rem 1rem; border-radius:16px; font-size:0.9rem; line-height:1.5;
+    position:relative;
+  }
+  .msg-bubble .msg-meta{
+    display:block; font-size:0.68rem; opacity:0.7; margin-top:0.25rem;
+  }
+  .msg-bubble.mine{
+    align-self:flex-end; background:var(--rose); color:#fff; border-bottom-right-radius:4px;
+  }
+  .msg-bubble.theirs{
+    align-self:flex-start; background:var(--blush-light); color:var(--ink); border-bottom-left-radius:4px;
+  }
+  .chat-input-row{
+    display:flex; gap:0.6rem; padding:1rem; border-top:1px solid var(--blush-light);
+  }
+  .chat-input-row input{
+    flex:1; border:1px solid var(--blush); border-radius:20px; padding:0.65rem 1.1rem;
+    font-family:'Poppins',sans-serif; font-size:0.9rem; color:var(--ink);
+  }
+  .chat-input-row input:focus{ outline:none; border-color:var(--rose); }
+  .chat-send{
+    background:var(--rose); color:#fff; border:none; border-radius:50%;
+    width:42px; height:42px; font-size:1.1rem; cursor:pointer; flex-shrink:0;
+  }
+  .chat-note{
+    text-align:center; font-size:0.75rem; color:var(--ink-soft); margin-top:0.9rem;
+  }
+
+  /* ===== Music widget (floating) ===== */
+  .music-fab{
+    position:fixed; bottom:1.4rem; right:1.4rem; z-index:50;
+    width:56px; height:56px; border-radius:50%;
+    background:var(--rose); color:#fff; border:none;
+    box-shadow:0 10px 26px -8px rgba(201,24,74,0.55);
+    font-size:1.3rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .2s ease;
+  }
+  .music-fab:hover{ transform:scale(1.06); }
+  .music-fab.spinning i{ display:inline-block; animation:spin 3.2s linear infinite; }
+  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+  .music-fab.hidden{ display:none; }
+
+  .song-card{
+    background:#fff; border-radius:20px; border:1px solid var(--blush);
+    box-shadow:0 20px 50px -20px rgba(109,11,43,0.2);
+    padding:1.8rem; text-align:center;
+  }
+  .song-upload{
+    border:2px dashed var(--blush); border-radius:16px; padding:2.4rem 1.4rem;
+    cursor:pointer; color:var(--ink-soft); transition:border-color .2s ease;
+  }
+  .song-upload:hover{ border-color:var(--rose); }
+  .song-upload .icon{ font-size:2rem; color:var(--rose); display:block; margin-bottom:0.6rem; }
+  .song-upload input{ display:none; }
+  .song-playing{ display:none; }
+  .song-playing.show{ display:block; }
+  .song-title-row{
+    display:flex; align-items:center; justify-content:center; gap:0.7rem; margin-bottom:1.1rem;
+  }
+  .song-note-icon{ font-size:1.4rem; }
+  .song-name{ font-family:'Playfair Display',serif; color:var(--burgundy); font-size:1.1rem; }
+  .song-controls{ display:flex; align-items:center; justify-content:center; gap:1rem; margin-top:0.4rem; }
+  .song-play-btn{
+    width:52px; height:52px; border-radius:50%; background:var(--rose); color:#fff;
+    border:none; font-size:1.2rem; cursor:pointer;
+  }
+  .song-swap-btn, .song-remove-btn{
+    background:var(--blush-light); color:var(--ink-soft); border:none;
+    border-radius:14px; padding:0.5rem 0.9rem; font-size:0.78rem; cursor:pointer;
+  }
+  .song-error{ color:var(--rose); font-size:0.78rem; margin-top:0.8rem; display:none; }
+  .song-hint{ font-size:0.75rem; color:var(--ink-soft); margin-top:1rem; }
+</style>
+</head>
+<body>
+
+<div class="hearts-bg" id="heartsBg"></div>
+
+<section class="hero" style="padding:0;">
+  <div class="hero-eyebrow">A love story</div>
+  <h1 class="hero-names">Zakaria<span class="hero-heart">♥️</span>Manal</h1>
+  <p class="hero-sub">This is our little corner of the internet — our memories, our photos, and everything that brings us together.</p>
+
+  <div class="counter-wrap">
+    <div class="counter-label">Together for</div>
+    <div class="counter-value"><span id="daysCount">0</span> days</div>
+    <div class="counter-date-row">
+      <span>Since:</span>
+      <input type="date" id="startDate" value="2025-08-09">
+    </div>
+  </div>
+
+  <div class="scroll-hint">↓</div>
+</section>
+
+<section id="song">
+  <h2 class="section-title">Our song</h2>
+  <p class="section-sub">The song that plays whenever we open this page</p>
+  <div class="divider" style="margin-bottom:3rem;"></div>
+
+  <div class="song-card">
+    <div class="song-upload" id="songUpload">
+      <span class="icon">🎵</span>
+      <div>Tap to add our song (MP3)</div>
+    </div>
+    <input type="file" id="songInput" accept="audio/*">
+
+    <div class="song-playing" id="songPlaying">
+      <div class="song-title-row">
+        <span class="song-note-icon">🎶</span>
+        <span class="song-name" id="songName">Our song</span>
+      </div>
+      <div class="song-controls">
+        <button class="song-play-btn" id="songPlayBtn">▶</button>
+        <button class="song-swap-btn" id="songSwapBtn">Change song</button>
+        <button class="song-remove-btn" id="songRemoveBtn">Remove</button>
+      </div>
+    </div>
+
+    <div class="song-error" id="songError"></div>
+    <p class="song-hint">Keep it short (under ~4MB) so it saves properly. Visible to anyone with this page's link.</p>
+  </div>
+</section>
+
+<button class="music-fab hidden" id="musicFab" title="Play / pause our song"><i>🎵</i></button>
+
+<section id="gallery">
+  <h2 class="section-title">Our memories</h2>
+  <p class="section-sub">Tap any heart to add a photo</p>
+  <div class="divider"></div>
+  <div class="gallery" id="galleryGrid"></div>
+  <p class="gallery-note">These photos are visible to anyone with this page's link, and saved for both of you. A secret code is needed to change or remove one that's already set.</p>
+</section>
+
+<section id="story">
+  <h2 class="section-title">Our story</h2>
+  <p class="section-sub">Swap these milestones for your own real memories</p>
+  <div class="divider" style="margin-bottom:3rem;"></div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">First meeting</div>
+      <div class="timeline-title">Where it all started</div>
+      <div class="timeline-text">Tell the story of how you met — where, when, and how it all began.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">A special moment</div>
+      <div class="timeline-title">First date, or the first "I love you"</div>
+      <div class="timeline-text">This is the spot for the memory that still makes you smile.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Today</div>
+      <div class="timeline-title">Where we are now</div>
+      <div class="timeline-text">And the story keeps going... with many more beautiful memories ahead.</div>
+    </div>
+  </div>
+</section>
+
+<section id="letter">
+  <h2 class="section-title">A letter for you</h2>
+  <div class="divider" style="margin-bottom:3rem;"></div>
+  <div class="letter-card">
+    <p class="letter-text">
+      Manal, since the day you walked into my life, everything has felt brighter. Your laugh, the way you talk, even your smallest messages — they all mean something special to me.
+      I made this page for you, as a small reminder of how much I love you, and how grateful I am to have you in my life.
+    </p>
+    <div class="letter-sign">Zakaria 🤍</div>
+  </div>
+</section>
+
+<section id="messages">
+  <h2 class="section-title">Messages</h2>
+  <p class="section-sub">A little space just for the two of you</p>
+  <div class="divider" style="margin-bottom:3rem;"></div>
+
+  <div class="chat-card">
+    <div class="sender-toggle">
+      <button class="sender-btn active" id="btnZakaria">Zakaria</button>
+      <button class="sender-btn" id="btnManal">Manal</button>
+    </div>
+    <div class="chat-log" id="chatLog">
+      <div class="chat-empty">No messages yet. Say something sweet.</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Type a message..." maxlength="500">
+      <button class="chat-send" id="chatSend">➤</button>
+    </div>
+  </div>
+  <p class="chat-note">Messages here are visible to anyone with this page's link — not private like a texting app.</p>
+</section>
+
+<footer>
+  Made with love <span class="foot-heart">♥️</span> Zakaria & Manal
+</footer>
+
+<script>
+  var heartsContainer = document.getElementById('heartsBg');
+  var heartCount = 14;
+  for (var i = 0; i < heartCount; i++) {
+    var h = document.createElement('div');
+    h.className = 'heart-particle';
+    h.textContent = Math.random() > 0.5 ? '♥️' : '❤';
+    h.style.left = (Math.random() * 100) + '%';
+    h.style.fontSize = (14 + Math.random() * 18) + 'px';
+    h.style.animationDuration = (10 + Math.random() * 14) + 's';
+    h.style.animationDelay = (Math.random() * 12) + 's';
+    heartsContainer.appendChild(h);
+  }
+
+  /* ===== Gallery photos (shared between both of you) ===== */
+  var slotDefs = [1,2,3,4,5,6];
+  var galleryGrid = document.getElementById('galleryGrid');
+
+  // Secret code required to change or remove a photo that's already set.
+  // Change this to whatever you two want it to be.
+  var GALLERY_PIN = '2025';
+
+  function askPin() {
+    var entered = window.prompt('Secret code to change this photo:');
+    if (entered === null) return false;
+    if (entered.trim() !== GALLERY_PIN) {
+      alert('Wrong code.');
+      return false;
+    }
+    return true;
+  }
+
+  function buildSlot(n) {
+    var wrap = document.createElement('div');
+    wrap.className = 'photo-slot';
+    wrap.id = 'slot-' + n;
+    wrap.innerHTML =
+      '<i class="placeholder-icon">♡</i>' +
+      '<div class="placeholder-text">Add a photo</div>' +
+      '<button class="remove-btn" title="Remove">✕</button>' +
+      '<input type="file" accept="image/*">';
+    galleryGrid.appendChild(wrap);
+
+    var input = wrap.querySelector('input[type=file]');
+    var removeBtn = wrap.querySelector('.remove-btn');
+
+    wrap.addEventListener('click', function (e) {
+      if (e.target === removeBtn) return;
+      var hasImg = !!wrap.querySelector('img');
+      if (hasImg && !askPin()) return;
+      input.click();
+    });
+
+    input.addEventListener('change', async function () {
+      var file = input.files[0];
+      if (!file) return;
+      var reader = new FileReader();
+      reader.onload = async function (ev) {
+        var dataUrl = ev.target.result;
+        showImage(n, dataUrl);
+        try {
+          await window.storage.set('photo:' + n, dataUrl, true);
+        } catch (err) {
+          console.error('Could not save photo', err);
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+
+    removeBtn.addEventListener('click', async function (e) {
+      e.stopPropagation();
+      if (!askPin()) return;
+      resetSlot(n);
+      try {
+        await window.storage.delete('photo:' + n, true);
+      } catch (err) {
+        console.error('Could not remove photo', err);
+      }
+    });
+  }
+
+  function showImage(n, dataUrl) {
+    var wrap = document.getElementById('slot-' + n);
+    var img = wrap.querySelector('img');
+    if (!img) {
+      img = document.createElement('img');
+      wrap.insertBefore(img, wrap.firstChild);
+    }
+    img.src = dataUrl;
+    wrap.querySelector('.placeholder-icon').style.display = 'none';
+    wrap.querySelector('.placeholder-text').style.display = 'none';
+  }
+
+  function resetSlot(n) {
+    var wrap = document.getElementById('slot-' + n);
+    var img = wrap.querySelector('img');
+    if (img) img.remove();
+    wrap.querySelector('.placeholder-icon').style.display = '';
+    wrap.querySelector('.placeholder-text').style.display = '';
+  }
+
+  slotDefs.forEach(buildSlot);
+
+  (async function loadPhotos() {
+    for (var i = 0; i < slotDefs.length; i++) {
+      var n = slotDefs[i];
+      try {
+        var res = await window.storage.get('photo:' + n, true);
+        if (res && res.value) showImage(n, res.value);
+      } catch (err) {
+        // No saved photo for this slot
+      }
+    }
+  })();
+
+  /* ===== Days-together counter (shared start date) ===== */
+  var startDateInput = document.getElementById('startDate');
+  var daysCountEl = document.getElementById('daysCount');
+
+  function updateCounter(dateStr) {
+    if (!dateStr) { daysCountEl.textContent = '0'; return; }
+    var start = new Date(dateStr);
+    var now = new Date();
+    var diff = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+    daysCountEl.textContent = diff >= 0 ? diff : 0;
+  }
+
+  startDateInput.addEventListener('change', async function () {
+    updateCounter(startDateInput.value);
+    try {
+      await window.storage.set('start-date', startDateInput.value, true);
+    } catch (err) {
+      console.error('Could not save date', err);
+    }
+  });
+
+  updateCounter(startDateInput.value);
+
+  (async function loadStartDate() {
+    try {
+      var res = await window.storage.get('start-date', true);
+      if (res && res.value) {
+        startDateInput.value = res.value;
+        updateCounter(res.value);
+      } else {
+        await window.storage.set('start-date', startDateInput.value, true);
+      }
+    } catch (err) {
+      try {
+        await window.storage.set('start-date', startDateInput.value, true);
+      } catch (err2) {
+        // could not save default date
+      }
+    }
+  })();
+
+  /* ===== Messages ===== */
+  var currentSender = 'Zakaria';
+  var btnZakaria = document.getElementById('btnZakaria');
+  var btnManal = document.getElementById('btnManal');
+  var chatLog = document.getElementById('chatLog');
+  var chatInput = document.getElementById('chatInput');
+  var chatSend = document.getElementById('chatSend');
+  var lastRenderedCount = -1;
+
+  btnZakaria.addEventListener('click', function () {
+    currentSender = 'Zakaria';
+    btnZakaria.classList.add('active');
+    btnManal.classList.remove('active');
+  });
+  btnManal.addEventListener('click', function () {
+    currentSender = 'Manal';
+    btnManal.classList.add('active');
+    btnZakaria.classList.remove('active');
+  });
+
+  function renderMessages(list) {
+    if (list.length === lastRenderedCount) return;
+    lastRenderedCount = list.length;
+    var wasNearBottom = (chatLog.scrollHeight - chatLog.scrollTop - chatLog.clientHeight) < 60;
+    chatLog.innerHTML = '';
+    if (!list.length) {
+      chatLog.innerHTML = '<div class="chat-empty">No messages yet. Say something sweet.</div>';
+      return;
+    }
+    list.forEach(function (m) {
+      var bubble = document.createElement('div');
+      bubble.className = 'msg-bubble ' + (m.sender === currentSender ? 'mine' : 'theirs');
+      var timeStr = '';
+      try {
+        timeStr = new Date(m.time).toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+      } catch (e) {}
+      bubble.innerHTML = '<span></span><span class="msg-meta"></span>';
+      bubble.querySelector('span').textContent = m.text;
+      bubble.querySelector('.msg-meta').textContent = m.sender + ' · ' + timeStr;
+      chatLog.appendChild(bubble);
+    });
+    if (wasNearBottom) chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function loadMessages() {
+    try {
+      var res = await window.storage.get('messages', true);
+      var list = res && res.value ? JSON.parse(res.value) : [];
+      renderMessages(list);
+    } catch (err) {
+      renderMessages([]);
+    }
+  }
+
+  async function sendMessage() {
+    var text = chatInput.value.trim();
+    if (!text) return;
+    chatInput.value = '';
+    try {
+      var res = await window.storage.get('messages', true);
+      var list = res && res.value ? JSON.parse(res.value) : [];
+      list.push({ sender: currentSender, text: text, time: Date.now() });
+      await window.storage.set('messages', JSON.stringify(list), true);
+      lastRenderedCount = -1;
+      renderMessages(list);
+      chatLog.scrollTop = chatLog.scrollHeight;
+    } catch (err) {
+      console.error('Could not send message', err);
+    }
+  }
+
+  chatSend.addEventListener('click', sendMessage);
+  chatInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') sendMessage();
+  });
+
+  loadMessages();
+  setInterval(loadMessages, 4000);
+
+  /* ===== Our song (shared MP3, autoplay on first tap) ===== */
+  var songUpload = document.getElementById('songUpload');
+  var songInput = document.getElementById('songInput');
+  var songPlaying = document.getElementById('songPlaying');
+  var songName = document.getElementById('songName');
+  var songPlayBtn = document.getElementById('songPlayBtn');
+  var songSwapBtn = document.getElementById('songSwapBtn');
+  var songRemoveBtn = document.getElementById('songRemoveBtn');
+  var songError = document.getElementById('songError');
+  var musicFab = document.getElementById('musicFab');
+
+  var audioEl = new Audio();
+  audioEl.loop = true;
+  var hasSong = false;
+  var autoplayArmed = false;
+
+  function showSongError(msg) {
+    songError.textContent = msg;
+    songError.style.display = 'block';
+    setTimeout(function () { songError.style.display = 'none'; }, 5000);
+  }
+
+  function setSongUI(present) {
+    hasSong = present;
+    songUpload.style.display = present ? 'none' : 'block';
+    songPlaying.classList.toggle('show', present);
+    musicFab.classList.toggle('hidden', !present);
+  }
+
+  function setPlayIcon(playing) {
+    songPlayBtn.textContent = playing ? '⏸' : '▶';
+    musicFab.classList.toggle('spinning', playing);
+  }
+
+  audioEl.addEventListener('play', function () { setPlayIcon(true); });
+  audioEl.addEventListener('pause', function () { setPlayIcon(false); });
+
+  function armAutoplay() {
+    if (autoplayArmed) return;
+    autoplayArmed = true;
+    var tryPlay = function () {
+      if (hasSong && audioEl.paused) {
+        audioEl.play().catch(function () {});
+      }
+      document.removeEventListener('click', tryPlay);
+      document.removeEventListener('touchstart', tryPlay);
+    };
+    document.addEventListener('click', tryPlay);
+    document.addEventListener('touchstart', tryPlay);
+    // Also try immediately in case autoplay is allowed
+    audioEl.play().catch(function () {});
+  }
+
+  songUpload.addEventListener('click', function () { songInput.click(); });
+  songSwapBtn.addEventListener('click', function () { songInput.click(); });
+
+  songInput.addEventListener('change', function () {
+    var file = songInput.files[0];
+    if (!file) return;
+    if (file.size > 4.2 * 1024 * 1024) {
+      showSongError('The file is too big to save (keep it under ~4MB). Try a shorter clip or a lower bitrate.');
+      songInput.value = '';
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = async function (ev) {
+      var dataUrl = ev.target.result;
+      try {
+        await window.storage.set('song', JSON.stringify({ name: file.name, data: dataUrl }), true);
+        loadSongFromDataUrl(dataUrl, file.name);
+      } catch (err) {
+        showSongError('Could not save the song. Try a shorter file.');
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function loadSongFromDataUrl(dataUrl, name) {
+    audioEl.src = dataUrl;
+    songName.textContent = name || 'Our song';
+    setSongUI(true);
+    armAutoplay();
+  }
+
+  songPlayBtn.addEventListener('click', function () {
+    if (audioEl.paused) {
+      audioEl.play().catch(function () { showSongError('Tap play again to start the song.'); });
+    } else {
+      audioEl.pause();
+    }
+  });
+
+  musicFab.addEventListener('click', function () {
+    if (audioEl.paused) {
+      audioEl.play().catch(function () {});
+    } else {
+      audioEl.pause();
+    }
+  });
+
+  songRemoveBtn.addEventListener('click', async function () {
+    audioEl.pause();
+    audioEl.removeAttribute('src');
+    setSongUI(false);
+    try {
+      await window.storage.delete('song', true);
+    } catch (err) {
+      // nothing saved
+    }
+  });
+
+  (async function loadSong() {
+    try {
+      var res = await window.storage.get('song', true);
+      if (res && res.value) {
+        var parsed = JSON.parse(res.value);
+        loadSongFromDataUrl(parsed.data, parsed.name);
+      }
+    } catch (err) {
+      // No song saved yet
+    }
+  })();
+</script>
+
+</body>
+</html>
